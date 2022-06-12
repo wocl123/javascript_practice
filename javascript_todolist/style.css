@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom right, #68eace 20%, #d8e849 100%);
+}
+
+.wrapper{
+    margin: 120px auto;
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.534);
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.wrapper header{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.wrapper .container{
+    display: flex;
+    height: 45px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.container input{
+    outline: none;
+    width: 85%;
+    height: 100%;
+    border: 1px solid black;
+    font-size: 17px;
+    border-radius: 3px;
+    padding-left: 15px;
+}
+
+.container button{
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #8E49E8;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 5px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.container button.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wrapper .todo_list{
+    max-height: 250px;
+    overflow-y : auto;
+}
+
+.todo_list li{
+    list-style: none;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    background: #3332324d;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    cursor: default;
+    /*overflow : 요소내의 컨텐츠가 너무 커서 모두 보여주기 힘들때 사용
+    visible : 기본값, hidden : 넘치는 부분 잘라서 보여지지 않음
+    scroll : 스크롤바가 추가(가로/세로), auto : 컨텐츠량에 따라 스크롤바 자동결정*/
+    overflow: hidden;
+}
+
+.todo_list li span{
+    position: absolute;
+    right: -45px;
+    color: #fff;
+    width: 45px;
+    text-align: center;
+    border-radius: 0 3px 3px 0;
+    background: #e74c3c;
+    cursor: pointer;
+    /*transition : 속성을 서서히 변화시키는 속성*/
+    transition: all 0.3s ease;
+}
+/*hover : 포인팅 장치를 사용해 상호작용 중인 요소*/
+.todo_list li:hover span{
+    right: 0px;
+}
+
+.wrapper .footer{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.footer button{
+    border: none;
+    outline: none;
+    background: #8E49E8;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 6px 10px;   
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.footer button.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
