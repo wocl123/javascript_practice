@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background : rgba(136, 67, 67, 0.13);
+}
+
+.wrapper{
+    margin: 120px auto;
+    max-width: 400px;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    border-radius: 20px;
+    /* css 뉴모피즘 : https://neumorphism.io/#ffffff */
+    box-shadow: -8px -8px 16px #919191,
+                8px 8px 16px #ffffff;
+    padding: 25px;
+}
+
+.wrapper header{
+    font-size : 28px;
+    font-weight: 400;
+}
+
+.wrapper .container{
+    display: flex;
+    height: 45px;
+    width: 100%;
+    margin: 20px 0;
+    flex-direction: column;
+}
+
+.container p{
+    font-size: 14px;
+    padding: 7px;
+}
+
+.container input{
+    width: 100%;
+    height: 35px;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border:0 solid black;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow:  5px 5px 100px #b5b5b5,
+                 -5px -5px 100px #ffffff;
+}
+
+.container p{
+    font-size : 15px;
+    font-weight: 600;
+}
+
+.container input:focus{
+    outline: 1px solid black;
+}
+.user_name, .user_email, .user_pswd, .user_pswd_2, .user_phone{
+    margin: 5px 0;
+}
+
+.footer button{
+    margin-top: 20px;
+    float: right; /*버튼 오른쪽으로 정렬하기!*/
+    border: none;
+    outline: none;
+    background:rgba(136, 67, 67, 0.247);
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 6px 10px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.footer button.active{
+    opacity: 1;
+    pointer-events: auto;
+}
