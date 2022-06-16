@@ -103,9 +103,19 @@
                 <div>
                     <h3 class="join_title"><label for="mobile">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력">
+                        <select id="nationNo" name="nationNo" class="sel" aria-label="전화번호 입력">
+                            <option value="82">대한민국 +82</option>
+
+                        </select>
                     </span>
-                    <span class="error_next_box"></span>    
+                <div class="int_mobile_area">
+                    <span class="box int_mobile_cert">
+                        <input type="tel" id="phoneNo" name="phoneNo" placeholder="전화번호 입력" class="int" maxlength="16">
+                        <label for="phoneNo" class="lbl"></label>
+                    </span>
+                    <a href="#" id="btnSend" role="button" class="btn_verify btn_primary">
+                        <span class>인증번호 받기</span>
+                    </a>              
                 </div>
                 <div class="btn_area">
                     <button type="button" id="btnJoin">
