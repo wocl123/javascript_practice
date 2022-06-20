@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<body>
+    <div id="root"></div>
+</body>
+    <!--React-->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!--JSX 변환(Babel)-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!--React-->
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        //span 태그 생성 (HTML 태그명, Propety(아이디/클래스명), 안의 내용)
+        /* const h3 = React.createElement("h3", {
+            id: "title",
+            onMouseEnter: () => console.log("mouse enter"),
+        }, "Hello i`m span."); 바벨로 변환하기 전 코드*/
+
+        //컴포넌트는 대문자로 시작!
+        function App() {
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                //state 를 세팅하는 방법 2가지
+                //(1) 직접할당 : setCounter(counter+1); 현재 state와 관련이 없는 값을 새로운 state로 하고싶은 경우
+                //(2) setState(state => state+1) 현재 state에 조금의 변화를 주어서 새로운 state를 주고 싶은 경우
+                setCounter((current) => current+1);
+            }
+            return (
+                <div>
+                    <h3>Total clicks : {counter}</h3>     
+                    <button onClick={onClick}>Click me</button>
+                </div>
+            );
+        }
+        //react element를 html로 만들어 배치한다는 뜻
+        ReactDOM.render(<App />, root);
+    </script>
+</html>
+
+<!-- 
+    일반 자바스크립트를 쓴 브라우저는 노드정보가 바뀔때마다 노드트리를 
+    5단계에 걸쳐 처음부터 다시 생성함
+    반면 리액트는 가상돔을 써서 우리 시야에 보이는 부분만 수정해서 보여주고 
+    모든 업뎃이 끝나면 일괄로 합쳐서 실제 돔에 던져줌 -->
