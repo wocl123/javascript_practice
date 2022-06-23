@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script type="text/babel">
+    /*Btn 함수에 들어가는 인자는 Props 이다.*/
+    /*만약 fontSize의 기본값을 주고 싶다면 fontSize= 14 라는 값으로 인자를 넘겨주면 됨.*/
+    function Btn({ text = "Default", fontSize }) {
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
+    // Prop 타입을 정해줌, 대소문자 제대로 확인!!!!!
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
+    function App() {
+      return (
+        <div>
+          <Btn text="Save Changes" fontSize={18} />
+          <Btn text="continue" fontSize={14} />
+          <Btn fontSize={22} />
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
+
+<!-- Props types
+어떤 타입의 prop을 받고 있는지 체크해줌.
+미리 설정을 해두고, 만약에 prop 타입이 다르게 들어오면 콘솔창에 오류메세지 발생.
+어떤 타입이 있는지 알고싶다면 콘솔창에 propTypes를 입력해서 확인
+isRequired : 필수로 입력해야 되는 것을 확인!! 만약 필수값이 입력되지 않으면 콘솔창에
+Warning 메세지가 발생함.
+-->
