@@ -1,17 +1,16 @@
-import "antd/dist/antd.min.css";
-import SearchContainer from "./container/SearchContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Search from "./routes/Search";
 
 function App() {
   return (
-    <div>
-      <SearchContainer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-/*
-design : https://ant.design/
-=> npm i antd
-*/
