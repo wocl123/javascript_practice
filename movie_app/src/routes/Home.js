@@ -17,9 +17,10 @@ class Home extends React.Component {
       } else {
         const {
           data: { items },
-        } = await axios.get("https://openapi.naver.com/v1/search/movie.json", {
+        } = await axios.get("/api/v1/search/movie.json", {
           params: {
             query: this.state.value,
+            display: 20,
           },
           headers: {
             "X-Naver-Client-Id": "",
@@ -27,7 +28,7 @@ class Home extends React.Component {
           },
         });
         this.setState({ movies: items, isLoading: false });
-        console.log(this.state.movies);
+        console.log(items);
       }
     } catch (e) {
       console.log(e);
@@ -68,13 +69,14 @@ class Home extends React.Component {
               />
             </div>
             <div className={styles.movie}>
-              {movies.map((movie) => (
+              {movies.map((movie, index) => (
                 <Movie
+                  key={movie.index}
                   id={movie.link}
                   title={movie.title}
                   image={movie.image}
                   date={movie.pubDate}
-                  actor={movie.actor}
+                  director={movie.director}
                   rating={movie.userRating}
                 />
               ))}
