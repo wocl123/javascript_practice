@@ -22,17 +22,22 @@ function getToday() {
 }
 
 function Ranking() {
-  const API_KEY = "1f1b256e114aa1d7cc262eb79649ebd5";
+  const API_KEY = process.env.REACT_APP_MOVIE_RANKING_API;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const today_date = getToday();
-    console.log(today_date);
+    const get_date = getToday();
     const fetchMovies = async () => {
       try {
         const res = await axios.get(
-          `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${today_date}`
+          `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${get_date}`
+          // {
+          //   params: {
+          //     key: API_KEY,
+          //     targetDt: today_date,
+          //   },
+          // }
         );
         setData(res.data.boxOfficeResult.dailyBoxOfficeList);
         setLoading(false);
@@ -42,7 +47,6 @@ function Ranking() {
     };
     fetchMovies();
   }, []);
-  console.log(data);
 
   return (
     <div className={styles.container}>

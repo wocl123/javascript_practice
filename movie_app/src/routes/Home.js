@@ -12,6 +12,8 @@ class Home extends React.Component {
   };
 
   getMovies = async () => {
+    const ID_KEY = process.env.REACT_APP_NAVER_API_ID;
+    const SECRET_KEY = process.env.REACT_APP_NAVER_API_SECRET;
     try {
       if (this.state.value === "") {
         this.setState({ movies: [], isLoading: false });
@@ -24,8 +26,8 @@ class Home extends React.Component {
             display: 20,
           },
           headers: {
-            "X-Naver-Client-Id": "17_OfwnPcqdWNWUTP_bH",
-            "X-Naver-Client-Secret": "mwqqAu4SJM",
+            "X-Naver-Client-Id": ID_KEY,
+            "X-Naver-Client-Secret": SECRET_KEY,
           },
         });
         this.setState({ movies: items, isLoading: false });
