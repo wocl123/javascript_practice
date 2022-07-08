@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gugi&display=swap");
+
+.item_list {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+
+  div {
+    width: 100%;
+    input {
+      margin-right: 7px;
+      cursor: pointer;
+    }
+    span {
+      font-family: "Dongle", sans-serif;
+      font-size: 30px;
+    }
+    button {
+      float: right;
+      padding-right: 0;
+      border: none;
+      outline: none;
+      background: none;
+      cursor: pointer;
+      svg {
+        font-size: 20px;
+        color: #e62424;
+      }
+    }
+  }
+}
+
+.no_check {
+  margin-left: 5px;
+  text-decoration: none;
+}
+.check {
+  margin-left: 5px;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: red;
+}
