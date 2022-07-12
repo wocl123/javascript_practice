@@ -3,7 +3,6 @@ import React from "react";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Navigation from "./components/Navigation";
-import MovieItem from "./components/movie_rank/MovieItem";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/rank" element={<MovieItem />} />
       </Routes>
     </BrowserRouter>
   );

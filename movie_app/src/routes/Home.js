@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "./Home.module.css";
 import Movie from "../components/Movie";
 import Ranking from "../components/movie_rank/Ranking";
+// import Test from "../components/movie_rank/Test";
 
 class Home extends React.Component {
   state = {
@@ -57,6 +58,7 @@ class Home extends React.Component {
       <div>
         <div className={styles.rank}>
           <Ranking />
+          {/* <Test /> */}
         </div>
         <section className={styles.container}>
           {isLoading ? (
@@ -66,7 +68,9 @@ class Home extends React.Component {
           ) : (
             <form onSubmit={this.handleSubmit}>
               <div className={styles.input_div}>
-                <h1>네이버 API 영화 검색</h1>
+                <a href="/">
+                  <h1>네이버 API 영화 검색</h1>
+                </a>
                 <input
                   className={styles.input_search}
                   type="text"

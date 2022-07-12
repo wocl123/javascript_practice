@@ -42,11 +42,12 @@ body,
 }
 
 .input_search {
-  width: 600px;
-  margin: 0;
-  height: 50px;
+  width: 300px;
+  margin-top: 20px;
+  height: 40px;
   background: none;
-  border-radius: 0;
+  background-color: white;
+  border-radius: 5px;
   border-top: 1px solid transparent;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
@@ -56,13 +57,13 @@ body,
 
 .input_div {
   text-align: center;
+  margin-top: 30px;
 }
 
 .movie {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 1fr 1fr 1fr;
   padding: 10px;
   padding-top: 70px;
 }
