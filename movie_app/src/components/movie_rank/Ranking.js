@@ -28,25 +28,6 @@ function Ranking() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const newsTicker = () => {
-      const $ul = document.querySelector("#rankul");
-      console.log($ul);
-      window.setInterval(() => {
-        $ul.style.transitionDuration = "400ms";
-        $ul.style.marginTop = "-34px";
-
-        window.setTimeout(() => {
-          $ul.style.transitionDuration = "";
-          $ul.style.marginTop = "";
-          // send the first element to the back 400ms later.
-          $ul.appendChild($ul.querySelector("li:first-child"));
-        }, 400);
-      }, 2500);
-    };
-    newsTicker();
-  }, []);
-
-  useEffect(() => {
     const get_date = getToday();
     const fetchMovies = async () => {
       try {
@@ -62,9 +43,13 @@ function Ranking() {
     fetchMovies();
   }, []);
 
-  // useEffect(() => {
-  //   newsTicker();
-  // }, []);
+  useEffect(() => {
+    const newsTicker = () => {
+      var ul = document.querySelector("ul");
+      console.log(ul);
+    };
+    newsTicker();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -74,7 +59,7 @@ function Ranking() {
         <div className={styles.movie}>
           <h2>영화 랭킹</h2>
           <div className={styles.rolling}>
-            <ul id="rankul">
+            <ul>
               {data.map((movie, index) => (
                 <li key={index} className={styles.rolling_list}>
                   <span className={styles.num}>{index + 1}위. </span>
