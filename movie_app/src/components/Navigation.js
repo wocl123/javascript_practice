@@ -7,6 +7,7 @@ function Navigation() {
     <div className={styles.nav}>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
+      <Link to="/tech">Tech</Link>
     </div>
   );
 }

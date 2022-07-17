@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import styles from "./Home.module.css";
 import Movie from "../components/Movie";
-import Ranking from "../components/movie_rank/Ranking";
+// import Ranking from "../components/movie_rank/Ranking";
 // import Test from "../components/movie_rank/Test";
 
 class Home extends React.Component {
@@ -56,10 +56,7 @@ class Home extends React.Component {
     const { movies, isLoading } = this.state;
     return (
       <div>
-        <div className={styles.rank}>
-          <Ranking />
-          {/* <Test /> */}
-        </div>
+        <div className={styles.rank}>{/* <Test /> */}</div>
         <section className={styles.container}>
           {isLoading ? (
             <div className={styles.loader}>

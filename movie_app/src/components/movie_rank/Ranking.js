@@ -22,56 +22,62 @@ function getToday() {
   return week_ago;
 }
 
-function Ranking() {
+const Ranking = () => {
   const API_KEY = process.env.REACT_APP_MOVIE_RANKING_API;
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+
+  const newsTicker = (timer) => {
+    const ul = document.querySelector("#rank");
+    console.log(ul);
+
+    window.setInterval(() => {
+      ul.style.transitionDuration = "400ms";
+      ul.style.marginTop = "-45px";
+
+      window.setTimeout(() => {
+        ul.removeAttribute("style");
+        ul.appendChild(ul.firstElementChild);
+      }, 400);
+    }, timer);
+  };
+
+  const fetchMovies = async () => {
+    const get_date = getToday();
+    try {
+      const res = await axios.get(
+        `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${get_date}`
+      );
+      setData(res.data.boxOfficeResult.dailyBoxOfficeList);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
-    const get_date = getToday();
-    const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${get_date}`
-        );
-        setData(res.data.boxOfficeResult.dailyBoxOfficeList);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-      }
-    };
     fetchMovies();
   }, []);
 
   useEffect(() => {
-    const newsTicker = () => {
-      var ul = document.querySelector("ul");
-      console.log(ul);
-    };
-    newsTicker();
+    newsTicker(3000);
   }, []);
 
   return (
     <div className={styles.container}>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div className={styles.movie}>
-          <h2>영화 랭킹</h2>
-          <div className={styles.rolling}>
-            <ul>
-              {data.map((movie, index) => (
-                <li key={index} className={styles.rolling_list}>
-                  <span className={styles.num}>{index + 1}위. </span>
-                  <span>{movie.movieNm}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className={styles.movie}>
+        <h2>영화 랭킹</h2>
+        <div className={styles.rolling}>
+          <ul id="rank">
+            {data.map((movie, index) => (
+              <li key={index} className={styles.rolling_list}>
+                <span className={styles.num}>{index + 1}위. </span>
+                <span>{movie.movieNm}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      )}
+      </div>
     </div>
   );
-}
+};
 
 export default Ranking;

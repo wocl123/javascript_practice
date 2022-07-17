@@ -1,8 +1,8 @@
 .container {
   position: fixed;
   right: 20px;
-  top: 50%;
-  // background-color: #ffffff;
+  top: 5%;
+  min-width: 300px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
@@ -36,8 +36,6 @@ li {
     padding: 0 1rem;
     font-weight: 700;
     line-height: 20px;
-
-    transition-duration: 0ms;
-    margin-top: 0;
+    font-size: 12px;
   }
 }
