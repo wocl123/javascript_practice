@@ -10,37 +10,25 @@
   flex-direction: column;
 
   header {
-    color: white;
     font-size: 1.5rem;
     font-weight: bold;
     height: 3.5rem;
     line-height: 3.5rem;
     width: 100%;
-
     background: #212529;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
 
   .menu {
     background-color: #343a40;
     height: 3.5rem;
-
-    // a {
-    //   display: inline-block;
-    //   color: white;
-    //   font-size: 1rem;
-    //   line-height: 3.5rem;
-    //   width: 25%;
-    //   text-align: center;
-    //   cursor: pointer;
-    //   transition: background-color 0.3s;
-    //   text-decoration: none;
-    // }
-    // a:hover {
-    //   background-color: #343aaa;
-    // }
     a {
       display: inline-block;
       border-radius: 0;

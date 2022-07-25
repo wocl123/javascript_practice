@@ -5,7 +5,9 @@ import styles from "./Header.module.scss";
 const Header = () => {
   return (
     <div className={styles.container}>
-      <header>Type Test</header>
+      <header>
+        <Link to="/">Type Test</Link>
+      </header>
       <div className={styles.menu}>
         <Link to="/">Home</Link>
         <Link to="/introduce">Introduce</Link>
